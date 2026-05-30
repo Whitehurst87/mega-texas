@@ -1,0 +1,37 @@
+---
+---
+<section class="bg-white py-24 px-6 md:px-12 border-t border-gray-100">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
+    <div class="space-y-8">
+      <h2 class="text-4xl text-primary-red font-bold">Why Us</h2>
+      <ul class="space-y-4">
+        {[
+          "Our line of food is high quality and fresh",
+          "We work with many local meat suppliers",
+          "Comfortable environment for your family",
+          "Best customer service in the valley"
+        ].map(item => (
+          <li class="flex items-center space-x-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-primary-red shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="text-lg text-text-muted">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    
+    <div class="bg-bg-alt p-12 rounded-3xl text-center space-y-8 shadow-inner border border-gray-200">
+      <h2 class="text-4xl md:text-5xl text-primary-red font-bold">Yes! We Offer Catering!</h2>
+      <p class="text-lg text-text-muted">
+        Planning an event? Let us handle the food. From small gatherings to large corporate events, we bring the pit to you. Operating 7 days a week.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/catering" class="inline-block bg-primary-red text-white px-10 py-4 rounded-xl font-bold text-xl hover:bg-red-700 transition-all transform hover:scale-105 shadow-md">
+          Catering Details
+        </a>
+        <a href="tel:2142546448" class="inline-block bg-white text-primary-red border-2 border-primary-red px-10 py-4 rounded-xl font-bold text-xl hover:bg-gray-50 transition-all transform hover:scale-105 shadow-md">
+          (214) 254-6448
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

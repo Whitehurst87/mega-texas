@@ -1,0 +1,33 @@
+---
+import ReviewCard from './ReviewCard.astro';
+
+const reviews = [
+  {
+    name: "Juty S.",
+    text: "We was completely the very best smoked meat, and the wait times were totally worth it. The brisket is just melting in your mouth."
+  },
+  {
+    name: "Cherie N.",
+    text: "I am quite the BBQ connoisseur and let me tell you this place is the real deal. Authentic flavors and great service."
+  },
+  {
+    name: "Lacs B.",
+    text: "The ribs were falling off the bone and the sides were equally impressive. Will definitely be coming back for more."
+  },
+  {
+    name: "Steven H.",
+    text: "Best BBQ in Fresno by far. The smoke profile is perfect and the sauces are a great addition, though the meat doesn't even need them."
+  }
+];
+---
+<section class="bg-bg-alt py-24 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto space-y-16">
+    <h2 class="text-4xl md:text-5xl text-primary-red font-bold text-center">What Our Customers Are Saying...</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {reviews.map(review => (
+        <ReviewCard {...review} />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,84 @@
+---
+---
+<div id="announcement-banner" class="bg-primary-red text-white py-2 text-center text-sm font-bold tracking-wide transition-colors duration-500">
+  <span class="inline-flex items-center">
+    <span id="status-dot" class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+    <span id="status-text">THE PIT IS OPEN - ORDER LIVE SMOKER INVENTORY</span>
+  </span>
+</div>
+
+<script>
+  function updateBannerStatus() {
+    const statusText = document.getElementById('status-text');
+    const statusDot = document.getElementById('status-dot');
+    
+    if (!statusText || !statusDot) return;
+
+    // Get current time specifically in Fresno (Pacific Time)
+    const now = new Date();
+    const laTime = now.toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+    const laDate = new Date(laTime);
+    
+    const day = laDate.getDay(); // 0 (Sun) to 6 (Sat)
+    const hour = laDate.getHours();
+    const minutes = laDate.getMinutes();
+
+    // Business Hours: Wed (3) - Sun (0), 10:30 AM - 5:00 PM
+    const businessDays = [0, 3, 4, 5, 6];
+    const isOpenDay = businessDays.includes(day);
+    const isWithinHours = (hour > 10 || (hour === 10 && minutes >= 30)) && hour < 17;
+
+    if (isOpenDay && isWithinHours) {
+      statusText.textContent = "THE PIT IS OPEN - ORDER LIVE SMOKER INVENTORY";
+      statusDot.className = "w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse";
+    } else {
+      const dayNames = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+      const isBeforeOpen = hour < 10 || (hour === 10 && minutes < 30);
+
+      let nextOpenLabel;
+      if (isOpenDay && isBeforeOpen) {
+        nextOpenLabel = 'TODAY';
+      } else {
+        let nextDay = (day + 1) % 7;
+        while (!businessDays.includes(nextDay)) {
+          nextDay = (nextDay + 1) % 7;
+        }
+        nextOpenLabel = dayNames[nextDay];
+      }
+
+      statusText.textContent = `BBQ REOPENS ${nextOpenLabel} @ 10:30AM • PRE-ORDERS & CATERING OPEN 24/7`;
+      statusDot.className = "w-2 h-2 bg-gray-400 rounded-full mr-2";
+    }
+  }
+
+  // Initial check
+  updateBannerStatus();
+  // Update every minute to catch state changes
+  setInterval(updateBannerStatus, 60000);
+</script>
+<header class="bg-bg-light py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 z-50 shadow-sm">
+  <div class="flex items-center space-x-12">
+    <div class="text-center leading-none flex-shrink-0">
+      <a href="/" class="block">
+        <img src="/images/logo.webp" alt="Mega Texas BBQ Logo" class="h-24 w-auto" />
+      </a>
+    </div>
+    
+    <nav class="hidden lg:flex space-x-8">
+      <a href="/" class="font-medium hover:text-primary-red transition-colors">Home</a>
+      <a href="/about" class="font-medium hover:text-primary-red transition-colors">Our Story</a>
+      <a href="/menu" class="font-medium hover:text-primary-red transition-colors">Menu</a>
+      <a href="/catering" class="font-medium hover:text-primary-red transition-colors">Catering</a>
+    </nav>
+  </div>
+  
+  <div class="flex items-center space-x-6">
+    <a href="tel:2142546448" class="hidden md:block text-sm font-bold group">
+      <span class="text-text-muted group-hover:text-primary-red transition-colors">(214) 254-6448</span>
+      <span class="block text-[10px] text-primary-red leading-none">TEXAS ROOTS, FRESNO PIT</span>
+    </a>
+    <a href="http://megatexasbbq.square.site/" target="_blank" rel="noopener noreferrer" class="bg-primary-red text-white px-6 py-2 rounded-lg font-bold hover:bg-red-700 transition-colors shadow-sm">
+      Order Now
+    </a>
+  </div>
+</header>

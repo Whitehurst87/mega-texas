@@ -1,0 +1,42 @@
+---
+import DishCard from './DishCard.astro';
+
+const dishes = [
+  {
+    name: "The Texas Twinkie",
+    image: "/images/texas twinkie closeup.jpg",
+    badge: "Pitmaster's Pride"
+  },
+  {
+    name: "Brisket Burnt Ends",
+    image: "/images/brisket bowl.jpg",
+    badge: "Pitmaster Choice"
+  },
+  {
+    name: "Smoked Tri-Tip",
+    image: "/images/sliced brisket tri tip biscuit.jpg",
+    badge: "California Fired"
+  },
+  {
+    name: "Pork Belly",
+    image: "/images/bbq plate.jpg",
+    badge: "Fan Favorite"
+  }
+];
+---
+<section class="bg-white py-24 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto space-y-16">
+    <div class="text-center space-y-4">
+      <h2 class="text-4xl md:text-5xl text-primary-red font-bold uppercase tracking-tighter">Our Best Selling BBQ Dishes</h2>
+      <p class="text-lg text-text-muted max-w-2xl mx-auto italic font-medium">
+        "Named one of the 50 best Texas-style barbecue joints in the entire country" — Texas Monthly
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {dishes.map(dish => (
+        <DishCard {...dish} />
+      ))}
+    </div>
+  </div>
+</section>

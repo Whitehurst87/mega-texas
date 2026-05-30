@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const sections = [
+  {
+    title: "Meats by the Pound",
+    subtitle: "Texas Inspired, California Fired",
+    items: [
+      { name: "Sliced Brisket or Brisket Burnt Ends", price: "$32 Whole / $16 Half", popular: true },
+      { name: "Smoked Tri-tip", price: "$32 Whole / $16 Half" },
+      { name: "Pork Belly", price: "$26 Whole / $12 Half", popular: true },
+      { name: "Pulled Pork", price: "$26 Whole / $12 Half" },
+      { name: "Smoked Turkey Breast", price: "$24 Whole / $12 Half" },
+      { name: "Ribs", price: "$44 Whole / $22 Half / $4.5 Each", popular: true }
+    ]
+  },
+  {
+    title: "Meats À La Carte",
+    subtitle: "$4 Each",
+    items: [
+      { name: "Chicken Lollipop", popular: true },
+      { name: "OG Chicken Thigh", popular: false },
+      { name: "Hot Link", popular: false },
+      { name: "Sausage", popular: false },
+      { name: "Texas Twinkie", price: "$7", popular: true, note: "Stuffed jalapeño with brisket & cream cheese, wrapped in bacon." }
+    ]
+  },
+  {
+    title: "Loaded Potatoes",
+    subtitle: "Includes sour cream and green onions on the side",
+    items: [
+      { name: "Naked Potato", price: "$7" },
+      { name: "1 Meat Potato", price: "$15" },
+      { name: "2 Meat Potato", price: "$20" },
+      { name: "3 Meat Potato", price: "$24" },
+      { name: "Add Mac & Cheese", price: "+$3.5", popular: true }
+    ]
+  },
+  {
+    title: "Meat Plates",
+    subtitle: "Includes 2 sides (8oz) and bread",
+    items: [
+      { name: "1 Meat Plate (1/3 lb)", price: "$19" },
+      { name: "2 Meats Plate (1/2 lb)", price: "$25" },
+      { name: "3 Meats Plate (3/4 lb)", price: "$33" },
+      { name: "4 Meats Plate (1 lb)", price: "$41" }
+    ],
+    note: "Meats: Brisket Burnt Ends, Sliced Brisket, Tri-Tip, Pork Belly, Pulled Pork, Turkey Breast, and Ribs"
+  },
+  {
+    title: "Sandwiches",
+    subtitle: "1/2 lb of meat with 1 side (8oz)",
+    items: [
+      { name: "Sliced Brisket Sandwich", price: "$21" },
+      { name: "Brisket Burnt Ends Sandwich", price: "$21" },
+      { name: "Tri-tip Sandwich", price: "$21", popular: true },
+      { name: "Pulled Pork Sandwich", price: "$17" },
+      { name: "Pork Belly Sandwich", price: "$17" },
+      { name: "Chopped Chicken Sandwich", price: "$17", popular: true },
+      { name: "Sausage Roller", price: "$8" }
+    ]
+  },
+  {
+    title: "BBQ Bowls",
+    subtitle: "$18 Each - Base of 3 sides (6oz) and 2 half servings of meat",
+    items: [
+      { name: "California Bowl", description: "Tri-tip & Half a Hot Link with Golden Potato Salad, Brisket Chili Beans, and Rice Pilaf", popular: true },
+      { name: "Texas Bowl", description: "Slice of Brisket & Half a Sausage with Green Chile Mac & Cheese, Brisket Chili Beans, and Rice Pilaf" },
+      { name: "KC Bowl", description: "Brisket Burnt Ends & 1 Rib with Green Chile Mac, Rice Pilaf, and Potato Salad", popular: true },
+      { name: "Alabama Bowl", description: "Chicken Thigh with White Sauce & Pulled Pork with Potato Salad, Brisket Chili Beans, and Green Chile Mac" },
+      { name: "Tennessee Bowl", description: "Pulled Pork & 1 Rib with Potato Salad, Green Chile Mac, and Brisket Chili Beans" },
+      { name: "Tri-Tip & Chili", description: "2 servings of Green Chile Mac topped with Brisket Chili Beans and Cheese & Tri-Tip" }
+    ]
+  },
+  {
+    title: "Sides & Extras",
+    items: [
+      { name: "Green Chile Mac & Cheese", price: "8oz: $5 / 12oz: $8 / 24oz: $15 / 32oz: $20" },
+      { name: "Rice Pilaf", price: "8oz: $5 / 12oz: $8 / 24oz: $15 / 32oz: $20" },
+      { name: "Brisket Chili Beans", price: "8oz: $5 / 12oz: $8 / 24oz: $15 / 32oz: $20" },
+      { name: "Golden Potato Salad", price: "8oz: $5 / 12oz: $8 / 24oz: $15 / 32oz: $20" },
+      { name: "Coleslaw", price: "8oz: $5 / 12oz: $8 / 24oz: $15 / 32oz: $20" },
+      { name: "Frito Pie", price: "$6" }
+    ]
+  },
+  {
+    title: "Desserts & Drinks",
+    items: [
+      { name: "Peach Cobbler (8oz)", price: "$5" },
+      { name: "Banana Pudding (8oz)", price: "$5" },
+      { name: "20oz Drink", price: "$3" }
+    ]
+  }
+];
+---
+
+<Layout title="Menu | Mega Texas BBQ">
+  <Header />
+  <main class="bg-bg-light min-h-screen pb-24">
+    <div class="relative bg-black text-white py-32 px-6 md:px-12 text-center overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img src="/images/outdoor%20bbq%20plate%20shot.jpg" alt="Mega Texas BBQ Spread" class="w-full h-full object-cover opacity-80" />
+      </div>
+      <div class="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/60 to-primary-red/40"></div>
+      <div class="relative z-20">
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-4">OUR MENU</h1>
+        <p class="text-xl opacity-90 max-w-2xl mx-auto font-medium italic">
+          "The best barbecue I've ever had." — Bill Burr
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+      {sections.map(section => (
+        <div class="space-y-6">
+          <div class="border-b-4 border-primary-red pb-2">
+            <h2 class="text-3xl font-extrabold text-primary-red uppercase tracking-tight">{section.title}</h2>
+            {section.subtitle && <p class="text-sm font-bold text-text-muted uppercase tracking-widest mt-1">{section.subtitle}</p>}
+          </div>
+          <div class="space-y-4">
+            {section.items.map(item => (
+              <div class="group">
+                <div class="flex justify-between items-baseline gap-4">
+                  <h3 class="text-lg font-bold text-text-dark group-hover:text-primary-red transition-colors">
+                    {item.name}
+                    {item.popular && <span class="ml-2 inline-block bg-primary-red text-white text-[10px] px-2 py-0.5 rounded uppercase align-middle">★ Popular</span>}
+                  </h3>
+                  <span class="text-lg font-bold text-text-dark whitespace-nowrap">{item.price}</span>
+                </div>
+                {item.description && <p class="text-sm text-text-muted mt-1 leading-relaxed">{item.description}</p>}
+                {item.note && <p class="text-xs font-bold text-primary-red mt-1 uppercase tracking-wider">{item.note}</p>}
+              </div>
+            ))}
+          </div>
+          {section.note && (
+            <div class="bg-white/50 p-4 rounded-lg border border-primary-red/20">
+              <p class="text-sm italic text-text-muted">{section.note}</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12 mt-20 text-center">
+      <div class="bg-white p-12 rounded-3xl shadow-xl border-2 border-primary-red/10 max-w-3xl mx-auto">
+        <h2 class="text-4xl font-bold text-primary-red mb-6">Ready to Eat?</h2>
+        <p class="text-xl text-text-muted mb-8">
+          Order online for pickup or come visit us at our Butler Avenue location. We serve until we sell out!
+        </p>
+        <a 
+          href="http://megatexasbbq.square.site/" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-block bg-primary-red text-white px-12 py-5 rounded-2xl font-bold text-2xl hover:bg-red-700 transition-all transform hover:scale-105 shadow-2xl"
+        >
+          Order Live Smoker Inventory
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
