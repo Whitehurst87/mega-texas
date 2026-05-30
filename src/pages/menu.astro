@@ -105,8 +105,8 @@ const sections = [
       </div>
       <div class="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/60 to-primary-red/40"></div>
       <div class="relative z-20">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-4">OUR MENU</h1>
-        <p class="text-xl opacity-90 max-w-2xl mx-auto font-medium italic">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4">OUR MENU</h1>
+        <p class="text-base sm:text-xl opacity-90 max-w-2xl mx-auto font-medium italic">
           "The best barbecue I've ever had." — Bill Burr
         </p>
       </div>
@@ -122,12 +122,12 @@ const sections = [
           <div class="space-y-4">
             {section.items.map(item => (
               <div class="group">
-                <div class="flex justify-between items-baseline gap-4">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0.5 sm:gap-4">
                   <h3 class="text-lg font-bold text-text-dark group-hover:text-primary-red transition-colors">
                     {item.name}
                     {item.popular && <span class="ml-2 inline-block bg-primary-red text-white text-[10px] px-2 py-0.5 rounded uppercase align-middle">★ Popular</span>}
                   </h3>
-                  <span class="text-lg font-bold text-text-dark whitespace-nowrap">{item.price}</span>
+                  {item.price && <span class="text-sm sm:text-lg font-bold text-text-muted sm:text-text-dark sm:whitespace-nowrap">{item.price}</span>}
                 </div>
                 {item.description && <p class="text-sm text-text-muted mt-1 leading-relaxed">{item.description}</p>}
                 {item.note && <p class="text-xs font-bold text-primary-red mt-1 uppercase tracking-wider">{item.note}</p>}
@@ -153,7 +153,7 @@ const sections = [
           href="http://megatexasbbq.square.site/" 
           target="_blank" 
           rel="noopener noreferrer" 
-          class="inline-block bg-primary-red text-white px-12 py-5 rounded-2xl font-bold text-2xl hover:bg-red-700 transition-all transform hover:scale-105 shadow-2xl"
+          class="inline-block bg-primary-red text-white px-8 py-4 sm:px-12 sm:py-5 rounded-2xl font-bold text-lg sm:text-2xl hover:bg-red-700 transition-all transform hover:scale-105 shadow-2xl"
         >
           Order Live Smoker Inventory
         </a>
